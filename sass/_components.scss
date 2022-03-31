@@ -16,6 +16,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -75,6 +81,9 @@
   display: flex;
   align-items: center;
 
+  //needed for challenge point 1
+  position: relative;
+
   & > * { //user-nav and all of the direct children
     padding: 0 2rem;
     cursor: pointer;
@@ -84,7 +93,9 @@
   }
 
   & > *:hover {
-    background-color: var(--color-grey-light-2);
+    // &:not(:last-child) { //added for challenge point 1
+      background-color: var(--color-grey-light-2);
+    // }
   }
 
   &__icon-box {
@@ -95,7 +106,6 @@
     height: 2.25rem;
     width: 2.25rem;
     fill: var(--color-grey-dark-2);
-    
   }
 
   &__notification {
@@ -107,13 +117,12 @@
     color: #fff;
     position: absolute;
     top: 1.5rem;
-    right: 1.1rem;
+    right: 2.1rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
 
   &__user-photo {
     height: 3.75rem;
@@ -121,6 +130,73 @@
     margin-right: 1rem;
   }
 
+  //challenge point 1
+
+  &__menu {
+    position: absolute;
+    top: 98%;
+    right: 0;
+    background-color: #fff;
+    display: block;
+    padding: 0;
+    z-index: 1000;
+    height: auto;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+  }
+
+  &__user:hover &__menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    padding: 2rem 4rem;
+
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+
+    &:hover {
+      background-color: var(--color-grey-light-1);
+      cursor: pointer;
+    }
+
+    &:active, &--active {
+      background-color: var(--color-grey-light-1);
+      border-bottom: 1px solid rgba(0,0,0,.15);
+    }
+  }
+
+  &__link:link,
+  &__link:visited {
+    display: block;
+    color: var(--color-grey-dark-2);
+    text-decoration: none;
+
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1rem;
+  }
+
+
+
+
+//end challenge point 1
 }
 
 /////////////////////////////////////////////////////
@@ -195,6 +271,11 @@
       justify-content: center;
       padding: 2rem;
      }
+
+     @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem .5rem;
+     }
   }
 
   &__icon {
@@ -202,6 +283,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor; //the color of the current element or the parent, it is useful when using a hover effect with a color change, the icon will also change the color with currentColor to match the hover one.
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: .7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+     }
   }
 }
 
@@ -247,6 +335,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+     }
   }
 
   &__stars {
@@ -282,17 +375,29 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+     }
   }
 
   &__rating-count {
     font-size: .8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: .5rem;
+     }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.5rem;
+     }
   }
 }
 
@@ -379,15 +484,19 @@
     margin-right: .7rem;
 
     //older browsers
-    //background-image: url(../img/chevron-thin-right.svg);
-    //background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     //newer browsers = masks (mask: defines an area where you can see through, and you can add a background color behind and this area will show the color behind.
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image:url()) or (mask-image:url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
+
 
   }
 }

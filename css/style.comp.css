@@ -182,8 +182,7 @@ body {
 .user-nav {
   align-self: stretch;
   display: flex;
-  align-items: center;
-  position: relative; }
+  align-items: center; }
   .user-nav > * {
     padding: 0 2rem;
     cursor: pointer;
@@ -207,53 +206,13 @@ body {
     color: #fff;
     position: absolute;
     top: 1.5rem;
-    right: 2.1rem;
+    right: 1.1rem;
     display: flex;
     justify-content: center;
     align-items: center; }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
-    margin-right: 1rem; }
-  .user-nav__menu {
-    position: absolute;
-    top: 98%;
-    right: 0;
-    background-color: #fff;
-    display: block;
-    padding: 0;
-    z-index: 1000;
-    height: auto;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
-    border-radius: 2px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all .3s; }
-  .user-nav__user:hover .user-nav__menu {
-    opacity: 1;
-    visibility: visible; }
-  .user-nav__list {
-    list-style: none; }
-  .user-nav__item {
-    padding: 2rem 4rem; }
-    .user-nav__item:not(:last-child) {
-      margin-bottom: .5rem; }
-    .user-nav__item:hover {
-      background-color: var(--color-grey-light-1);
-      cursor: pointer; }
-    .user-nav__item:active, .user-nav__item--active {
-      background-color: var(--color-grey-light-1);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
-  .user-nav__link:link, .user-nav__link:visited {
-    display: block;
-    color: var(--color-grey-dark-2);
-    text-decoration: none;
-    display: flex;
-    justify-items: center;
-    align-items: center; }
-  .user-nav__icon {
-    height: 2rem;
-    width: 2rem;
     margin-right: 1rem; }
 
 .side-nav {
