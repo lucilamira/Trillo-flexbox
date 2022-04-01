@@ -11,6 +11,7 @@
 //SEARCH BOX
 .search {
   flex: 0 0 40%;
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -34,7 +35,7 @@
     transition: all .2s;
     margin-right: -3.25rem;
 
-    &:focus{
+    &:focus {
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3);
@@ -49,6 +50,14 @@
   &__input:focus + &__button {
     background-color: var(--color-grey-light-3);
   }
+   
+  &__input:focus ~ &__suggestions {
+    //open search box
+    opacity: 1;
+    visibility: visible;
+  }
+
+
 
 
   &__button {
@@ -69,7 +78,76 @@
     width: 2rem;
     fill: var(--color-grey-dark-3);
   }
+
+  //challenge point 3
+
+  &__suggestions {
+    width: 95%;
+    background-color: #fff;
+    position: absolute;
+    top: 98%;
+    right: 1.1%;
+    border-radius: 3px;
+    box-shadow: var(--shadow-light);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+  }
+
+  &__suggestion-box {
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: var(--color-grey-light-1);
+      cursor: pointer;
+    }
+  }
+
+  &__photo {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+    box-shadow: var(--shadow-dark);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+  }
+
+  &__heading {
+    //nothing here
+  }
+
+  &__hotel-location {
+    //nothing here
+  }
+
+  &__suggestions-title {
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border-bottom: var(--line-dark);
+  }
+
+  &__stars {
+    display: flex;
+  }
+
+  &__empty-icon-star {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-grey-dark-2);
+  }
+
+
 }
+
 
 
 /////////////////////////////////////////////////////
@@ -172,7 +250,7 @@
 
     &:active, &--active {
       background-color: var(--color-grey-light-1);
-      border-bottom: 1px solid rgba(0,0,0,.15);
+      border-bottom: var(--line-dark);
     }
   }
 
@@ -220,7 +298,7 @@
     display: block;
     text-align: left;
     margin: 2rem 2rem .5rem 2rem;
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.25);
+    border-bottom: var(--line-dark);
   }
 
   &__messages {
@@ -265,7 +343,7 @@
     opacity: 1;
     visibility: visible;
   }
-
+//end challenge point 2
 
 }
 

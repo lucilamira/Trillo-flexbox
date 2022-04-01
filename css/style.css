@@ -28,7 +28,8 @@ Grey dark 3: #999
   --color-grey-dark-3: #999;
   --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
   --shadow-light:  0 2rem 5rem rgba(0,0,0,.06);
-  --line: 1px solid var(--color-grey-light-2); }
+  --line: 1px solid var(--color-grey-light-2);
+  --line-dark: 1px solid rgba(0,0,0,.15); }
 
 * {
   margin: 0;
@@ -139,6 +140,7 @@ body {
 
 .search {
   flex: 0 0 40%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -167,6 +169,9 @@ body {
       color: var(--color-grey-light-4); }
   .search__input:focus + .search__button {
     background-color: var(--color-grey-light-3); }
+  .search__input:focus ~ .search__suggestions {
+    opacity: 1;
+    visibility: visible; }
   .search__button {
     border: none;
     background-color: var(--color-grey-light-2); }
@@ -178,6 +183,45 @@ body {
     height: 2rem;
     width: 2rem;
     fill: var(--color-grey-dark-3); }
+  .search__suggestions {
+    width: 95%;
+    background-color: #fff;
+    position: absolute;
+    top: 98%;
+    right: 1.1%;
+    border-radius: 3px;
+    box-shadow: var(--shadow-light);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s; }
+  .search__suggestion-box {
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .search__suggestion-box:hover {
+      background-color: var(--color-grey-light-1);
+      cursor: pointer; }
+  .search__photo {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+    box-shadow: var(--shadow-dark); }
+  .search__text {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto; }
+  .search__suggestions-title {
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border-bottom: var(--line-dark); }
+  .search__stars {
+    display: flex; }
+  .search__empty-icon-star {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-grey-dark-2); }
 
 .user-nav {
   align-self: stretch;
@@ -243,7 +287,7 @@ body {
       cursor: pointer; }
     .user-nav__item:active, .user-nav__item--active {
       background-color: var(--color-grey-light-1);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+      border-bottom: var(--line-dark); }
   .user-nav__link:link, .user-nav__link:visited {
     display: block;
     color: var(--color-grey-dark-2);
@@ -275,7 +319,7 @@ body {
     display: block;
     text-align: left;
     margin: 2rem 2rem .5rem 2rem;
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.25); }
+    border-bottom: var(--line-dark); }
   .user-nav__message {
     padding: 2rem 2rem;
     display: flex;
