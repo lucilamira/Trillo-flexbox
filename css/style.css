@@ -216,6 +216,7 @@ body {
     border-radius: 50%;
     margin-right: 1rem; }
   .user-nav__menu {
+    height: auto;
     position: absolute;
     top: 98%;
     right: 0;
@@ -223,7 +224,6 @@ body {
     display: block;
     padding: 0;
     z-index: 1000;
-    height: auto;
     box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
     opacity: 0;
@@ -255,6 +255,50 @@ body {
     height: 2rem;
     width: 2rem;
     margin-right: 1rem; }
+  .user-nav__chats {
+    position: absolute;
+    top: 98%;
+    right: 0;
+    background-color: #fff;
+    display: block;
+    padding: 0;
+    z-index: 1000;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    height: 30rem;
+    width: auto;
+    overflow-y: scroll;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s; }
+  .user-nav__heading {
+    display: block;
+    text-align: left;
+    margin: 2rem 2rem .5rem 2rem;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.25); }
+  .user-nav__message {
+    padding: 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 40rem; }
+    .user-nav__message:hover {
+      background-color: var(--color-grey-light-1); }
+  .user-nav__text-box {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto; }
+  .user-nav__text {
+    margin-right: auto;
+    color: var(--color-primary);
+    font-weight: 550; }
+  .user-nav__name {
+    font-weight: 600; }
+  .user-nav__date {
+    align-self: flex-end; }
+  .user-nav__msg:hover .user-nav__chats {
+    opacity: 1;
+    visibility: visible; }
 
 .side-nav {
   font-size: 1.4rem;
