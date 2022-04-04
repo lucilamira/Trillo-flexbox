@@ -50,13 +50,12 @@
   &__input:focus + &__button {
     background-color: var(--color-grey-light-3);
   }
-   
+
   &__input:focus ~ &__suggestions {
     //open search box
     opacity: 1;
     visibility: visible;
   }
-
 
 
 
@@ -93,6 +92,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s;
+    z-index: 1000;
   }
 
   &__suggestion-box {
@@ -348,11 +348,6 @@
 }
 
 
-
-
-
-
-
 /////////////////////////////////////////////////////
 //SIDE NAVIGATION
 .side-nav {
@@ -467,10 +462,44 @@
 .gallery {
   display: flex;
 
+  &__item {
+    position: relative;
+  }
+
+  &__item:hover &__caption {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  &__item:hover &__photo {
+    filter: grayscale(60%);
+  }
+
   &__photo {
     width: 100%;
     display: block;
+    transition: all .2s;
   }
+
+
+
+  &__caption {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    padding: 1.5rem 3rem;
+    color: var(--color-grey-light-1);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+
+    position: absolute;
+    top: 65%;
+    left: 0;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all .3s;
+  }
+
 }
 
 
