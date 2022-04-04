@@ -440,7 +440,7 @@ body {
     width: 100%;
     position: absolute;
     top: 65%;
-    left: 0;
+    left: 0%;
     transform: translateY(100%);
     opacity: 0;
     transition: all .3s; }
